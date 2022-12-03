@@ -1,5 +1,5 @@
-import {Carousel} from '@mantine/carousel';
-import React, {useRef} from "react";
+import {Carousel, Embla, useAnimationOffsetEffect} from '@mantine/carousel';
+import React, {useRef, useState} from "react";
 import Autoplay from 'embla-carousel-autoplay';
 import {ImagesTypes} from "./imageSliderTypes";
 import {Image, MantineTheme, useMantineTheme} from "@mantine/core";
@@ -8,6 +8,9 @@ import {useMediaQuery} from '@mantine/hooks';
 const ImageCarousel: React.FC<ImagesTypes> = ({images, width, isOpen}) => {
     const autoplay = useRef(Autoplay({delay: 1600}));
     const theme: MantineTheme = useMantineTheme();
+    const TRANSITION_DURATION = 200;
+    const [embla, setEmbla] = useState<Embla | null>(null);
+    useAnimationOffsetEffect(embla, TRANSITION_DURATION);
 
     const xs = useMediaQuery(`(max-width: ${theme.breakpoints.xs}px)`);
     const sm = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
@@ -18,18 +21,16 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, isOpen}) => {
     return (
         <Carousel
             mx="auto"
+            getEmblaApi={setEmbla}
             withIndicators
             dragFree={false}
             loop
             slideGap={"md"}
             align="start"
-            plugins={[autoplay.current]}
-            onMouseEnter={autoplay.current.stop}
-            onMouseLeave={autoplay.current.reset}
+            // plugins={[autoplay.current]}
+            // onMouseEnter={autoplay.current.stop}
+            // onMouseLeave={autoplay.current.reset}
             styles={(theme) => ({
-                container: {
-                    transition: "all .25s linear",
-                },
                 slide: {
                     display: "flex",
                     alignItems: "center",
@@ -38,8 +39,7 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, isOpen}) => {
                 controls: {
                     marginRight: "auto",
                     marginLeft: "auto",
-                    maxWidth:
-                        xs ? width * .95 : sm ? width * .87 : md ? width * .75 : lg ? width * .65 : width * .55
+                    maxWidth: xs ? width * .95 : sm ? width * .87 : md ? width * .75 : lg ? width * .65 : width * .55
                 },
                 indicator: {
                     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.blue[4],
@@ -54,21 +54,17 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, isOpen}) => {
                     marginRight: "auto",
                     marginLeft: "auto",
                 },
-                viewport: {}
-
             })}
         >
             {images.map((image, idx: number) => {
                 return (
                     <Carousel.Slide key={idx}>
-                        <Image
-                            styles={(theme, params) => ({
-                                root: {
-                                    maxWidth:
-                                        xs ? width * .95 : sm ? width * .87 : md ? width * .75 : lg ? width * .65 : width * .55
-                                }
-                            })}
-                            fit={"contain"}
+                        <img
+                            style={{
+                                maxWidth:
+                                    xs ? width * .95 : sm ? width * .87 : md ? width * .75 : lg ? width * .65 : width * .55,
+                                objectFit: "cover"
+                            }}
                             src={image.imageUrl} alt={image.imageAlt}
                         />
                     </Carousel.Slide>

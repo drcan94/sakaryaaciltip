@@ -5,11 +5,15 @@
 /.pnp
 .pnp.js
 
+# environment files
+.idea
+
 # testing
 /coverage
 
 # production
 /build
+/public/assets
 
 # misc
 .DS_Store
