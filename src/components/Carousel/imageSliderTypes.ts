@@ -6,6 +6,7 @@ export type ImageTypes = {
 
 export type ImagesTypes = {
     images: ImageTypes[],
-    width:number,
-    isOpen:boolean
+    width: number,
+    height: number,
+    isOpen: boolean
 }

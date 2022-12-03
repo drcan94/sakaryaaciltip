@@ -163,6 +163,7 @@ const App: React.FC = () => {
                                element={
                                    <HomeScreen
                                        isOpen={isOpen}
+                                       height={height}
                                        width={
                                            theme.fn.smallerThan("sm")
                                                ? (!isOpen ? width - 220 : width)

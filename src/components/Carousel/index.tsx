@@ -5,7 +5,7 @@ import {ImagesTypes} from "./imageSliderTypes";
 import {MantineTheme, useMantineTheme} from "@mantine/core";
 import {useMediaQuery} from '@mantine/hooks';
 
-const ImageCarousel: React.FC<ImagesTypes> = ({images, width, isOpen}) => {
+const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) => {
     const autoplay = useRef(Autoplay({delay: 1600}));
     const theme: MantineTheme = useMantineTheme();
     const TRANSITION_DURATION = 200;
@@ -25,6 +25,7 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, isOpen}) => {
             withIndicators
             dragFree={false}
             loop
+
             slideGap={"md"}
             align="start"
             plugins={[autoplay.current]}
@@ -60,18 +61,16 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, isOpen}) => {
                 return (
                     <Carousel.Slide key={idx}>
                         <img style={{
+                            maxHeight: xs ? height * .35 : sm ? height * .45 : md ? height * .50 : lg ? height * .55 : height * .60,
                             maxWidth: xs ? width * .95 : sm ? width * .87 : md ? width * .75 : lg ? width * .65 : width * .55,
-                            objectFit: "cover"
+                            objectFit: "cover",
                         }}
                              src={image.imageUrl} alt={image.imageAlt}
                         />
                     </Carousel.Slide>
                 )
             })}
-
         </Carousel>
-
-
     );
 }
 

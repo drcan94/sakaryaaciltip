@@ -17,12 +17,12 @@ import ImageCarousel from "../../components/Carousel";
 // import ImagesSliderThumb from "../../components/ImageSliderThumb";
 // import ImageSliderPure from "../../components/ImageSliderPure";
 
-const HomeScreen: React.FC<{ width: number, isOpen:boolean }> = ({width,isOpen}) => {
+const HomeScreen: React.FC<{ width: number, height: number, isOpen: boolean }> = ({width, height, isOpen}) => {
     return (
         <HomeScreenContainer className={"helllo"}>
             {/*<ImagesSliderThumb images={allImages}/>*/}
             {/*<ImageSliderPure images={allImages}/>*/}
-            <ImageCarousel isOpen={isOpen} width={width} images={allImages}/>
+            <ImageCarousel isOpen={isOpen} width={width} height={height} images={allImages}/>
             {/*<Carousel*/}
             {/*    showThumbs={true} // Show thumbnail images*/}
             {/*    infiniteLoop={true} // Make the carousel loop infinitely*/}
