@@ -2,7 +2,7 @@ import {Carousel, Embla, useAnimationOffsetEffect} from '@mantine/carousel';
 import React, {useRef, useState} from "react";
 import Autoplay from 'embla-carousel-autoplay';
 import {ImagesTypes} from "./imageSliderTypes";
-import {Image, MantineTheme, useMantineTheme} from "@mantine/core";
+import {MantineTheme, useMantineTheme} from "@mantine/core";
 import {useMediaQuery} from '@mantine/hooks';
 
 const ImageCarousel: React.FC<ImagesTypes> = ({images, width, isOpen}) => {
@@ -27,9 +27,9 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, isOpen}) => {
             loop
             slideGap={"md"}
             align="start"
-            // plugins={[autoplay.current]}
-            // onMouseEnter={autoplay.current.stop}
-            // onMouseLeave={autoplay.current.reset}
+            plugins={[autoplay.current]}
+            onMouseEnter={autoplay.current.stop}
+            onMouseLeave={autoplay.current.reset}
             styles={(theme) => ({
                 slide: {
                     display: "flex",
@@ -59,19 +59,19 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, isOpen}) => {
             {images.map((image, idx: number) => {
                 return (
                     <Carousel.Slide key={idx}>
-                        <img
-                            style={{
-                                maxWidth:
-                                    xs ? width * .95 : sm ? width * .87 : md ? width * .75 : lg ? width * .65 : width * .55,
-                                objectFit: "cover"
-                            }}
-                            src={image.imageUrl} alt={image.imageAlt}
+                        <img style={{
+                            maxWidth: xs ? width * .95 : sm ? width * .87 : md ? width * .75 : lg ? width * .65 : width * .55,
+                            objectFit: "cover"
+                        }}
+                             src={image.imageUrl} alt={image.imageAlt}
                         />
                     </Carousel.Slide>
                 )
             })}
 
         </Carousel>
+
+
     );
 }
 
