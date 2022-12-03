@@ -76,7 +76,6 @@ const App: React.FC = () => {
     const theme = useMantineTheme()
 
     const {height, width} = useViewportSize();
-    console.log(width)
     return (
         <ColorSchemeProvider colorScheme={isChecked ? currentColorToHours : currentColorFromLS}
                              toggleColorScheme={toggleColorScheme}>
@@ -125,7 +124,7 @@ const App: React.FC = () => {
                         ],
                     },
                     breakpoints: {
-                        xs: 500,
+                        xs: 450,
                         sm: 768,
                         md: 1000,
                         lg: 1275,

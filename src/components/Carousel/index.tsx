@@ -1,5 +1,5 @@
 import {Carousel, Embla, useAnimationOffsetEffect} from '@mantine/carousel';
-import React, {useRef, useState} from "react";
+import React, {useRef, useState, useEffect} from "react";
 import Autoplay from 'embla-carousel-autoplay';
 import {ImagesTypes} from "./imageSliderTypes";
 import {MantineTheme, useMantineTheme} from "@mantine/core";
@@ -11,13 +11,11 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) =
     const TRANSITION_DURATION = 200;
     const [embla, setEmbla] = useState<Embla | null>(null);
     useAnimationOffsetEffect(embla, TRANSITION_DURATION);
-
     const xs = useMediaQuery(`(max-width: ${theme.breakpoints.xs}px)`);
     const sm = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
     const md = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
     const lg = useMediaQuery(`(max-width: ${theme.breakpoints.lg}px)`);
     // const xl = useMediaQuery(`(max-width: ${theme.breakpoints.xl}px)`);
-
     return (
         <Carousel
             mx="auto"
@@ -25,17 +23,24 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) =
             withIndicators
             dragFree={false}
             loop
-
             slideGap={"md"}
             align="start"
             plugins={[autoplay.current]}
             onMouseEnter={autoplay.current.stop}
             onMouseLeave={autoplay.current.reset}
             styles={(theme) => ({
+                root: {
+                    width:
+                        xs ? ("100%") : sm ? (!isOpen ? ("100%") : ("89%")) : (isOpen ? ("100%") : width),
+                },
                 slide: {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
+                    paddingRight: xs ? (25) : sm ? (!isOpen ? (25) : (0)) : (isOpen ? (25) : 0),
+                },
+                container: {
+                    width: isOpen ? (width - 220) : (width),
                 },
                 controls: {
                     marginRight: "auto",
