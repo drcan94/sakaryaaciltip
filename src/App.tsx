@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Routes, Route} from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import Layout from "./Layout";
-import {useHotkeys, useLocalStorage, useViewportSize} from "@mantine/hooks";
+import {useHotkeys, useLocalStorage, useMediaQuery, useViewportSize, useResizeObserver} from "@mantine/hooks";
 import {
     ColorScheme,
     MantineTheme,
@@ -23,6 +23,24 @@ const rtlCache = createEmotionCache({
 });
 
 const App: React.FC = () => {
+    const theme = useMantineTheme()
+
+    const { height, width } = useViewportSize();
+    const xs = useMediaQuery(`(max-width: ${theme.breakpoints.xs}px)`);
+    const sm = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
+    const md = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
+    const lg = useMediaQuery(`(max-width: ${theme.breakpoints.lg}px)`);
+    // const xl = useMediaQuery(`(max-width: ${theme.breakpoints.xl}px)`);
+    // sidebar is open
+    const [isOpen, setIsOpen] = useState(true);
+
+    // right arrow appearance
+    const [isClose, setIsClose] = useState(true);
+
+    const arrowClicked = () => {
+        setIsOpen(!isOpen);
+        setIsClose(!isClose);
+    };
 
     const [date, setDate] = useState(new Date());
     const isChecked = useAppSelector((state: RootState) => state.isChecked);
@@ -55,27 +73,20 @@ const App: React.FC = () => {
             defaultValue: false,
         }
     );
-    const rtlChangeHandler = () => setRtl((c) => !c)
-    useHotkeys([['mod+shift+L', rtlChangeHandler]]);
+    const rtlChangeHandler = () => {
+        setRtl((c) => !c);
+        sm && arrowClicked();
+    }
+    useHotkeys([['mod+shift+L', () => setRtl((c) => !c)]]);
 
 
     useEffect(() => {
         const timer = setInterval(() => setDate(new Date()), 1000);
         return () => clearInterval(timer);
     });
-    // sidebar is open
-    const [isOpen, setIsOpen] = useState(true);
 
-    // right arrow appearance
-    const [isClose, setIsClose] = useState(true);
 
-    const arrowClicked = () => {
-        setIsOpen(!isOpen);
-        setIsClose(!isClose);
-    };
-    const theme = useMantineTheme()
 
-    const {height, width} = useViewportSize();
     return (
         <ColorSchemeProvider colorScheme={isChecked ? currentColorToHours : currentColorFromLS}
                              toggleColorScheme={toggleColorScheme}>
@@ -127,8 +138,8 @@ const App: React.FC = () => {
                         xs: 450,
                         sm: 768,
                         md: 1000,
-                        lg: 1275,
-                        xl: 1600,
+                        lg: 1450,
+                        xl: 1700,
                     },
                     fontSizes: {
                         xs: 10,
@@ -164,9 +175,8 @@ const App: React.FC = () => {
                                        isOpen={isOpen}
                                        height={height}
                                        width={
-                                           theme.fn.smallerThan("sm")
-                                               ? (!isOpen ? width - 220 : width)
-                                               : (isOpen ? width - 220 : width)
+                                           xs ? (!isOpen ? 0 : width)
+                                               : sm ?  (!isOpen ? width - 220 : width) : (isOpen ? width - 220 : width)
                                        }
                                    />
                                }

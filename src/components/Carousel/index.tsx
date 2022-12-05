@@ -1,13 +1,14 @@
 import {Carousel, Embla, useAnimationOffsetEffect} from '@mantine/carousel';
-import React, {useRef, useState, useEffect} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import Autoplay from 'embla-carousel-autoplay';
 import {ImagesTypes} from "./imageSliderTypes";
 import {MantineTheme, useMantineTheme} from "@mantine/core";
-import {useMediaQuery} from '@mantine/hooks';
+import {useMediaQuery, useElementSize} from '@mantine/hooks';
 
 const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) => {
-    const autoplay = useRef(Autoplay({delay: 1600}));
+    const autoplay = useRef(Autoplay({delay: 4000}));
     const theme: MantineTheme = useMantineTheme();
+    const {ref: imageRef, width: imageWidth} = useElementSize();
     const TRANSITION_DURATION = 200;
     const [embla, setEmbla] = useState<Embla | null>(null);
     useAnimationOffsetEffect(embla, TRANSITION_DURATION);
@@ -15,7 +16,9 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) =
     const sm = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
     const md = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
     const lg = useMediaQuery(`(max-width: ${theme.breakpoints.lg}px)`);
+
     // const xl = useMediaQuery(`(max-width: ${theme.breakpoints.xl}px)`);
+
     return (
         <Carousel
             mx="auto"
@@ -24,28 +27,21 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) =
             dragFree={false}
             loop
             slideGap={"md"}
-            align="start"
+            align="center"
             plugins={[autoplay.current]}
             onMouseEnter={autoplay.current.stop}
             onMouseLeave={autoplay.current.reset}
             styles={(theme) => ({
                 root: {
-                    width:
-                        xs ? ("100%") : sm ? (!isOpen ? ("100%") : ("89%")) : (isOpen ? ("100%") : width),
+                    width: imageWidth,
                 },
                 slide: {
+                    width: "100%",
                     display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    paddingRight: xs ? (25) : sm ? (!isOpen ? (25) : (0)) : (isOpen ? (25) : 0),
+                    justifyContent: "center"
                 },
                 container: {
-                    width: isOpen ? (width - 220) : (width),
-                },
-                controls: {
-                    marginRight: "auto",
-                    marginLeft: "auto",
-                    maxWidth: xs ? width * .95 : sm ? width * .87 : md ? width * .75 : lg ? width * .65 : width * .55
+                    display: "flex",
                 },
                 indicator: {
                     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.blue[4],
@@ -56,19 +52,24 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) =
                 },
                 indicators: {
                     bottom: -25,
-                    maxWidth: xs ? width * .95 : sm ? width * .87 : md ? width * .75 : lg ? width * .65 : width * .55,
-                    marginRight: "auto",
-                    marginLeft: "auto",
                 },
             })}
         >
             {images.map((image, idx: number) => {
                 return (
                     <Carousel.Slide key={idx}>
-                        <img style={{
-                            maxHeight: xs ? height * .35 : sm ? height * .45 : md ? height * .50 : lg ? height * .55 : height * .60,
-                            maxWidth: xs ? width * .95 : sm ? width * .87 : md ? width * .75 : lg ? width * .65 : width * .55,
-                            objectFit: "cover",
+                        <img ref={imageRef} style={{
+                            width:
+                            // xs ? 300
+                            //     : sm ? theme.breakpoints.xs
+                            //         : md ? theme.breakpoints.sm - 200
+                            //             : lg ? theme.breakpoints.md - 200 : 1000,
+                                xs ? theme.breakpoints.xs - 150
+                                    : sm ? (!isOpen ? (theme.breakpoints.sm - 220 - 150) : (theme.breakpoints.sm - 150))
+                                        : md ? (isOpen ? (theme.breakpoints.md - 220 - 250) : (theme.breakpoints.md - 250))
+                                            : lg ? (isOpen ? (700) : (920)) : (1000),
+                            // with this conditional (depend on "isOpen") css, carousel is not working properly ?
+                            objectFit: "contain",
                         }}
                              src={image.imageUrl} alt={image.imageAlt}
                         />
@@ -76,6 +77,7 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) =
                 )
             })}
         </Carousel>
+
     );
 }
 

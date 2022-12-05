@@ -4,7 +4,6 @@ import SwiperItem from "./SwiperItem";
 import {getRefValue, useStateRef} from "./lib/hooks";
 import {getTouchEventData} from "./lib/dom";
 import {SwiperContainer, SwiperList, SwiperIndicator, SwiperIndicatorItem} from "./styles"
-import {findLastIndex} from "lodash";
 
 const MIN_SWIPE_REQUIRED = 40
 
