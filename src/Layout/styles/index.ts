@@ -29,10 +29,10 @@ export const Main = styled.main<{ isClose: boolean }>`
   display: flex;
   padding: 60px 0 0 0;
   width: 100%;
-  @media (max-width: 680px) {
-    filter: ${({isClose}) => !isClose && `blur(15px)`};
-    -webkit-filter: ${({isClose}) => !isClose && `blur(15px)`};
-  }
+  // @media (max-width: 680px) {
+  //   filter: ${({isClose}) => !isClose && `blur(15px)`};
+  //   -webkit-filter: ${({isClose}) => !isClose && `blur(15px)`};
+  // }
 `
 
 

@@ -12,7 +12,7 @@ const Container = styled.div<{ theme: MantineTheme, width: number, screenWidth: 
   align-items: center;
   width: ${({width}) => width};
   height: 60px;
-  border-bottom: 1.5px solid ${({theme}) => theme.colorScheme === "dark" ? theme.colors.yellow[6] : theme.colors.dark[7]};
+  border-bottom: 2.5px solid ${({theme}) => theme.colorScheme === "dark" ? theme.colors.yellow[6] : theme.colors.dark[7]};
   @media (max-width: 450px) {
     width: ${({screenWidth}) => `${screenWidth}px`};
   }

@@ -17,7 +17,7 @@ const sideBarWidth = `220px`;
 
 const Container = styled.div<{ rtl: any, theme: MantineTheme, isOpen: boolean, screenWidth: number, screenHeight: number }>`
   position: fixed;
-  top:0;
+  top: 0;
   left: ${({isOpen, rtl}) => !rtl ? (isOpen ? `0` : `-${sideBarWidth}`) : "unset"};
   right: ${({isOpen, rtl}) => rtl ? (isOpen ? `0` : `-${sideBarWidth}`) : "unset"};
   width: ${sideBarWidth};
@@ -25,25 +25,27 @@ const Container = styled.div<{ rtl: any, theme: MantineTheme, isOpen: boolean, s
   display: flex;
   background: ${({theme}) => theme.colorScheme === "dark"
           ? theme.colors.dark[8]
-          : theme.colors.blue[7]
+          : theme.colors.blue[9]
   };
   color: white;
   transition: 0.3s all;
   z-index: 999999000000000;
   border-right: ${({
                      theme,
-                     rtl
-                   }) => !rtl ? (theme.colorScheme === "dark" ? `1.5px solid ${theme.colors.yellow[6]}` : "none") : "none"};
+                     rtl,
+                     screenWidth
+                   }) => !rtl && screenWidth > theme.breakpoints.xs ? (theme.colorScheme === "dark" ? `2.5px solid ${theme.colors.yellow[6]}` : `2.5px solid ${theme.colors.dark[7]}`) : "none"};
   border-left: ${({
                     theme,
-                    rtl
-                  }) => rtl ? (theme.colorScheme === "dark" ? `1.5px solid ${theme.colors.yellow[6]}` : "none") : "none"};
+                    rtl,
+                    screenWidth
+                  }) => rtl && screenWidth > theme.breakpoints.xs ? (theme.colorScheme === "dark" ? `2.5px solid ${theme.colors.yellow[6]}` : `2.5px solid ${theme.colors.dark[7]}`) : "none"};
 
   @media (max-width: 768px) {
     left: ${({isOpen, rtl}) => !rtl ? (isOpen ? `-${sideBarWidth}` : `0`) : "unset"};
     right: ${({isOpen, rtl}) => rtl ? (isOpen ? `-${sideBarWidth}` : `0`) : "unset"};
   }
-  
+
   @media (max-width: 450px) {
     width: ${({screenWidth}) => `${screenWidth}px`};
     left: ${({isOpen, screenWidth, rtl}) => !rtl ? (isOpen ? `-${screenWidth}px` : `0`) : "unset"};
@@ -61,7 +63,7 @@ const SidebarMenus = styled.div<{ screenWidth: number, screenHeight: number }>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
+
   @media (max-width: 450px) {
     width: ${({screenWidth}) => `${screenWidth}px`};
   }

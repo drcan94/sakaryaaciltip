@@ -1,5 +1,5 @@
-import {Carousel, Embla, useAnimationOffsetEffect} from '@mantine/carousel';
-import React, {useEffect, useRef, useState} from "react";
+import {Carousel, Embla} from '@mantine/carousel';
+import React, {useRef, useState} from "react";
 import Autoplay from 'embla-carousel-autoplay';
 import {ImagesTypes} from "./imageSliderTypes";
 import {MantineTheme, useMantineTheme} from "@mantine/core";
@@ -13,7 +13,6 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) =
     const md = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
     const lg = useMediaQuery(`(max-width: ${theme.breakpoints.lg}px)`);
     // const xl = useMediaQuery(`(max-width: ${theme.breakpoints.xl}px)`);
-
     const autoplay = useRef(Autoplay({delay: 2000}));
 
     const {ref: imageRef, width: imageWidth} = useElementSize();
@@ -56,10 +55,10 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) =
                     <Carousel.Slide key={idx}>
                         <img ref={imageRef} style={{
                             width:
-                                xs ? theme.breakpoints.xs - 150
-                                    : sm ? (!isOpen ? (theme.breakpoints.sm - 220 - 150) : (theme.breakpoints.sm - 150))
-                                        : md ? (isOpen ? (theme.breakpoints.md - 220 - 250) : (theme.breakpoints.md - 250))
-                                            : lg ? (isOpen ? (700) : (920)) : (1000),
+                                xs ? (!isOpen ? 0 : width * .9)
+                                    : sm ? (!isOpen ? width * .85 : width * .9)
+                                        : md ? (isOpen ? theme.breakpoints.md - 220 - 250 : theme.breakpoints.md - 250)
+                                            : lg ? (isOpen ? 700 : 920) : 1000,
                             objectFit: "contain",
                         }}
                              src={image.imageUrl} alt={image.imageAlt}

@@ -21,6 +21,7 @@ const TopMenuContainer = styled.div<{ theme: MantineTheme, top: string, isClose:
   align-items: center;
   z-index: 1;
   transition: 0.4s all;
+  border-bottom: 2.5px solid ${({theme}) => theme.colorScheme === "dark" ? theme.colors.yellow[6] : theme.colors.dark[7]};
 
   @media (max-width: 768px) {
     justify-content: ${({isClose}) =>
