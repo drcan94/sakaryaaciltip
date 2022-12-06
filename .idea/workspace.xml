@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21ff9269-88eb-43b5-b791-4352d78bbc48" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Carousel/hooks/useCustomAnimationOffsetEffect.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Carousel/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Carousel/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen/styles/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen/styles/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +109,7 @@
       <workItem from="1669666432460" duration="34246000" />
       <workItem from="1669963986773" duration="24185000" />
       <workItem from="1670145191360" duration="33941000" />
-      <workItem from="1670255352868" duration="12981000" />
+      <workItem from="1670255352868" duration="18550000" />
     </task>
     <servers />
   </component>

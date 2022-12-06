@@ -4,6 +4,7 @@ import Autoplay from 'embla-carousel-autoplay';
 import {ImagesTypes} from "./imageSliderTypes";
 import {MantineTheme, useMantineTheme} from "@mantine/core";
 import {useMediaQuery, useElementSize} from '@mantine/hooks';
+import useCustomAnimationOffsetEffect from "./hooks/useCustomAnimationOffsetEffect";
 
 const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) => {
     const theme: MantineTheme = useMantineTheme();
@@ -13,16 +14,11 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) =
     const lg = useMediaQuery(`(max-width: ${theme.breakpoints.lg}px)`);
     // const xl = useMediaQuery(`(max-width: ${theme.breakpoints.xl}px)`);
 
-    const autoplay = useRef(Autoplay({delay: 3000}));
+    const autoplay = useRef(Autoplay({delay: 2000}));
+
     const {ref: imageRef, width: imageWidth} = useElementSize();
-
-    const TRANSITION_DURATION = 200;
     const [embla, setEmbla] = useState<Embla | null>(null);
-    useAnimationOffsetEffect(embla, TRANSITION_DURATION);
-
-    useEffect(() => {
-        embla?.reInit()
-    }, [imageWidth, embla])
+    useCustomAnimationOffsetEffect(embla, 0, imageWidth)
 
     return (
         <Carousel
@@ -42,12 +38,7 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) =
                 },
                 slide: {
                     display: "flex",
-                    justifyContent: "center"
                 },
-                container: {
-                    display: "flex",
-                },
-
                 indicator: {
                     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.blue[4],
                     width: 12,
