@@ -6,20 +6,19 @@ import {MantineTheme, useMantineTheme} from "@mantine/core";
 import {useMediaQuery, useElementSize} from '@mantine/hooks';
 
 const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) => {
-    const autoplay = useRef(Autoplay({delay: 1700}));
     const theme: MantineTheme = useMantineTheme();
-    const {ref: imageRef, width: imageWidth} = useElementSize();
-
-    const TRANSITION_DURATION = 200;
-
-    const [embla, setEmbla] = useState<Embla | null>(null);
-    useAnimationOffsetEffect(embla, TRANSITION_DURATION);
-
     const xs = useMediaQuery(`(max-width: ${theme.breakpoints.xs}px)`);
     const sm = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
     const md = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
     const lg = useMediaQuery(`(max-width: ${theme.breakpoints.lg}px)`);
     // const xl = useMediaQuery(`(max-width: ${theme.breakpoints.xl}px)`);
+
+    const autoplay = useRef(Autoplay({delay: 3000}));
+    const {ref: imageRef, width: imageWidth} = useElementSize();
+
+    const TRANSITION_DURATION = 200;
+    const [embla, setEmbla] = useState<Embla | null>(null);
+    useAnimationOffsetEffect(embla, TRANSITION_DURATION);
 
     useEffect(() => {
         embla?.reInit()
