@@ -1,9 +1,5 @@
 import React, {useState} from "react";
 import {Link} from "react-router-dom";
-import {
-    MD_900,
-    YELLOW_100,
-} from "../colors";
 import StyledThemeIcon from "../StyledThemeIcon";
 import {IconArrowBigRightLines, IconArrowBigLeftLines, IconHome} from "@tabler/icons";
 import {MantineTheme, useMantineTheme, createStyles} from "@mantine/core";
@@ -15,7 +11,7 @@ const TopMenuContainer = styled.div<{ theme: MantineTheme, top: string, isClose:
   left: 0;
   width: 100%;
   height: 60px;
-  background-color: ${({theme}) => theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.blue[9]};
+  background-color: ${({theme}) => theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.colors.blue[9]};
   display: flex;
   justify-content: ${({isClose}) => (isClose ? "flex-end" : "space-between")};
   align-items: center;
@@ -27,9 +23,6 @@ const TopMenuContainer = styled.div<{ theme: MantineTheme, top: string, isClose:
     justify-content: ${({isClose}) =>
             isClose ? `space-between` : `flex-end`};
   }
-  // @media (max-width: 550px) {
-    //   background: ${MD_900};
-  // }
 `;
 
 const Icons = styled.div`
@@ -47,12 +40,13 @@ const LeftContainer = styled(Icons)<{ isClose: boolean }>`
   }
 `;
 
-const RightContainer = styled(Icons)<{ isClose: boolean }>`
+const RightContainer = styled(Icons)<{ theme: MantineTheme, isClose: boolean }>`
   width: ${({isClose}) => (isClose ? `calc(100% - 220px)` : `100%`)};
   justify-content: center;
   display: flex;
   padding: 0 10px;
-  color: ${YELLOW_100};
+  font-weight: 500;
+  color: ${({theme}) => theme.colorScheme === "dark" ? theme.colors.yellow[6] : theme.colors.gray[2]};
   @media (max-width: 768px) {
     width: ${({isClose}) => (!isClose ? `calc(100% - 220px)` : `100%`)};
   }
@@ -77,18 +71,8 @@ const useStyles = createStyles((theme) => ({
 }));
 
 
-const TopMenu = ({rtl, isClose, rightArrowClicked}) => {
-    const [top, setTop] = useState("0");
-    let prevScrollpos = window.scrollY;
-    window.onscroll = function () {
-        let currentScrollPos = window.scrollY;
-        if (prevScrollpos > currentScrollPos) {
-            setTop("0");
-        } else {
-            setTop("-60px");
-        }
-        prevScrollpos = currentScrollPos;
-    };
+const TopMenu = ({rtl, top, isClose, rightArrowClicked}) => {
+
 
     const handleClick = () => rightArrowClicked()
     const theme = useMantineTheme()
@@ -112,7 +96,7 @@ const TopMenu = ({rtl, isClose, rightArrowClicked}) => {
                     </StyledThemeIcon>
                 </div>
             </LeftContainer>
-            <RightContainer className={classes.responsiveTextSize} isClose={isClose}>
+            <RightContainer theme={theme} className={classes.responsiveTextSize} isClose={isClose}>
                 SAKARYA ACİL TIP
             </RightContainer>
         </TopMenuContainer>

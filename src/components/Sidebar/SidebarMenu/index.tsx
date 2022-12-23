@@ -16,18 +16,26 @@ const Container = styled.div<{ isOpen: boolean, theme: MantineTheme }>`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  width: 100%;
+  width: 180px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
-const Row = styled.div<{ theme: MantineTheme, active: boolean }>`
+const Row = styled.div<{ theme: MantineTheme, active: boolean, isOpen: boolean }>`
   display: flex;
+
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   margin-bottom: 2px;
   padding: 10px;
   color: ${({theme}) => (theme.colors.gray[2])};
   text-decoration: none;
   border-radius: 10px;
+  border: 1px solid ${({theme, isOpen}) => (
+          theme.colorScheme === "dark"
+                  ? (!isOpen ? (theme.colors.yellow[6]) : "unset")
+                  : (!isOpen ? (theme.colors.gray[3]) : "unset")
+  )};
   background: ${({active, theme}) => (
           theme.colorScheme === "dark"
                   ? (active ? (theme.colors.blue[7]) : "unset")
@@ -36,7 +44,7 @@ const Row = styled.div<{ theme: MantineTheme, active: boolean }>`
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  width: 100%;
+  width: 180px;
   text-align: center;
 
   &:hover {
@@ -45,6 +53,7 @@ const Row = styled.div<{ theme: MantineTheme, active: boolean }>`
                     ? (theme.colors.blue[7])
                     : (theme.colors.dark[7])
     )};
+    border-color: transparent;
   }
 `;
 
@@ -76,7 +85,7 @@ const SubMenuContent = styled.div`
   background-color: transparent;
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 170px;
 `;
 
 type SidebarMenuTypes = {
@@ -110,7 +119,7 @@ const SidebarMenu: React.FC<SidebarMenuTypes> = ({
 
     return (
         <Container theme={useTheme} isOpen={isSubMenuOpen} {...props}>
-            <Row theme={useTheme} active={active} onClick={handleClick}>
+            <Row theme={useTheme} active={active} isOpen={isSubMenuOpen} onClick={handleClick}>
                 <Title>{title}</Title>
                 {count > 0 && <Count>{count}</Count>}
                 <Icon>{icon}</Icon>

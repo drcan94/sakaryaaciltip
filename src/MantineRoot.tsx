@@ -2,7 +2,13 @@ import React, {useEffect, useState} from "react";
 import {useHotkeys, useLocalStorage} from "@mantine/hooks";
 import {useAppSelector} from "./redux/hooks";
 import {RootState} from "./redux/store";
-import {ColorScheme, ColorSchemeProvider, MantineProvider, MantineTheme, createEmotionCache} from "@mantine/core";
+import {
+    ColorScheme,
+    ColorSchemeProvider,
+    MantineProvider,
+    MantineTheme,
+    createEmotionCache,
+} from "@mantine/core";
 import superjson from "superjson";
 import CustomFonts from "./components/CustomFonts";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
@@ -26,6 +32,11 @@ const MantineRoot: React.FC = () => {
     const [date, setDate] = useState(new Date());
     const isChecked = useAppSelector((state: RootState) => state.isChecked);
 
+    useEffect(() => {
+        const timer = setInterval(() => setDate(new Date()), 1000);
+        return () => clearInterval(timer);
+    });
+
     const defaultCurrentColorToHours: ColorScheme = (date.getHours() >= 18 || date.getHours() < 6 ? "dark" : "light")
     const [currentColorToHours, setCurrentColorToHours] = useState<ColorScheme>(defaultCurrentColorToHours)
 
@@ -42,17 +53,26 @@ const MantineRoot: React.FC = () => {
 
     const toggleColorScheme = () => {
         isChecked
-            ? setCurrentColorToHours(defaultCurrentColorToHours)
+            ? setCurrentColorToHours(date.getHours() >= 18 || date.getHours() < 6 ? "dark" : "light")
             : setCurrentColorFromLS(currentColorFromLS === "dark" ? "light" : "dark")
     }
 
     useHotkeys([['mod+J', () => !isChecked && toggleColorScheme()]]);
     useHotkeys([['mod+shift+L', () => setRtl((c) => !c)]]);
 
-    useEffect(() => {
-        const timer = setInterval(() => setDate(new Date()), 1000);
-        return () => clearInterval(timer);
-    });
+
+
+    const [top, setTop] = useState("0");
+    let prevScrollpos = window.scrollY;
+    window.onscroll = function () {
+        let currentScrollPos = window.scrollY;
+        if (prevScrollpos > currentScrollPos) {
+            setTop("0");
+        } else {
+            setTop("-60px");
+        }
+        prevScrollpos = currentScrollPos;
+    };
 
     return (
         <ColorSchemeProvider colorScheme={isChecked ? currentColorToHours : currentColorFromLS}
@@ -74,10 +94,11 @@ const MantineRoot: React.FC = () => {
                             outline: 0,
                             textDecoration: "none",
                             listStyle: "none",
+                            scrollPaddingTop: 100,
                         },
                         body: {
                             ...theme.fn.fontStyles(),
-                            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.white,
+                            backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[9] : theme.colors.gray[1],
                             color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.black,
                             lineHeight: theme.lineHeight,
                         },
@@ -124,7 +145,7 @@ const MantineRoot: React.FC = () => {
                 <CustomFonts/>
                 <Router>
                     <Routes>
-                        <Route path="/*" element={<App rtl={rtl} setRtl={setRtl}/>}/>
+                        <Route path="/*" element={<App top={top} rtl={rtl} setRtl={setRtl}/>}/>
                     </Routes>
                 </Router>
             </MantineProvider>

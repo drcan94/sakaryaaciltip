@@ -5,15 +5,90 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21ff9269-88eb-43b5-b791-4352d78bbc48" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MantineRoot.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/BreadCrumbComponent/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CustomAccordion/AccordionLabel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CustomAccordion/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CustomAccordion/styles/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/CustomAccordion/types/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/FileComponent/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NestedCategories/helper.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NestedCategories/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/NestedCategories/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/StaffAccordion/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/StaffAccordion/styles/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TocComponent/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TocComponent/styles/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/AboutScreen/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/AboutScreen/styles/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/ContactScreen/ContactIcons.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/ContactScreen/bg.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/ContactScreen/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/NestedCategoriesScreen/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/OnlineEducationalVideosScreen/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/OnlineEducationalVideosScreen/styles/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/PreGraduatedScreen/data/donem_4_data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/PreGraduatedScreen/data/donem_6_data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/PreGraduatedScreen/data/receteler_data.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/PreGraduatedScreen/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/PreGraduatedScreen/styles/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/ProtocolsGuidesScreen/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/ProtocolsGuidesScreen/styles/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/StaffScreen/AssisstantStaff/data/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/StaffScreen/AssisstantStaff/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/StaffScreen/GraduatedStaff/data/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/StaffScreen/GraduatedStaff/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/StaffScreen/SpecialistStaff/data/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/StaffScreen/SpecialistStaff/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/StaffScreen/TeachingStaff/data/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/StaffScreen/TeachingStaff/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/VisionMissionScreen/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/VisionMissionScreen/styles/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Layout/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layout/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Layout/styles/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Layout/styles/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MantineRoot.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/MantineRoot.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Carousel/imageSliderTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Carousel/imageSliderTypes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Carousel/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Carousel/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar/TopSideBar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar/TopSideBar/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/DirectionChangeIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DirectionChangeIcon/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderPure/SwiperItem/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderPure/SwiperItem/styles/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderPure/imageSliderTypes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderPure/images/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderPure/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderPure/lib/dom/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderPure/lib/hooks/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderPure/styles/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/10.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/4.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/5.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/6.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/7.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/8.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/9.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/slider01.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/slider02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/slider03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/slider04.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/slider05.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/slider06.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/images/süeah_edited_berst.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/assets/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ImageSliderThumb/slider.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar/MenuGroup/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar/MenuGroup/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Sidebar/SidebarMenu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar/SidebarMenu/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sidebar/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ToggleThemeIcon/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ToggleThemeIcon/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/TopMenu/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/TopMenu/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/HomeScreen/styles/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/HomeScreen/styles/index.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +104,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/node_modules/@mantine/core/lib/Container/Container.d.ts" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -47,7 +125,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/boz/Desktop/software/js/acil/src/components&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/boz/Desktop/software/js/acil/src/screens/PreGraduatedScreen&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -60,18 +138,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/components" />
-      <recent name="$PROJECT_DIR$/public/fonts" />
-      <recent name="$PROJECT_DIR$/src/components/Carousel" />
-      <recent name="$PROJECT_DIR$/src/components/InfiniteSlider" />
-      <recent name="$PROJECT_DIR$/src/components/ImageSlider/assets/images" />
+      <recent name="$PROJECT_DIR$/src/screens/PreGraduatedScreen" />
+      <recent name="$PROJECT_DIR$/public/assets" />
+      <recent name="$PROJECT_DIR$/src/screens/ProtocolsGuidesScreen" />
+      <recent name="$PROJECT_DIR$/src/screens/OnlineEducationalVideosScreen" />
+      <recent name="$PROJECT_DIR$/src/screens/StaffScreen/GraduatedStaff" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/fonts" />
-      <recent name="$PROJECT_DIR$/src/components/ImageSliderPure" />
-      <recent name="$PROJECT_DIR$/src/components/Carousel" />
-      <recent name="$PROJECT_DIR$/src/components/ImageSliderPure/lib" />
-      <recent name="$PROJECT_DIR$/src/components/ImageSliderPure/images" />
+      <recent name="$PROJECT_DIR$/src/components" />
+      <recent name="$PROJECT_DIR$/src/components/NestedCategories/components/BreadCrumbComponent" />
+      <recent name="$PROJECT_DIR$/src/screens/PreGraduatedScreen/data" />
+      <recent name="$PROJECT_DIR$/src/screens/StaffScreen" />
+      <recent name="$PROJECT_DIR$/src/components/CustomAccordion" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -115,7 +193,10 @@
       <workItem from="1669666432460" duration="34246000" />
       <workItem from="1669963986773" duration="24185000" />
       <workItem from="1670145191360" duration="33941000" />
-      <workItem from="1670255352868" duration="25086000" />
+      <workItem from="1670255352868" duration="25230000" />
+      <workItem from="1670357247797" duration="118783000" />
+      <workItem from="1671583649374" duration="41000" />
+      <workItem from="1671616076299" duration="52599000" />
     </task>
     <servers />
   </component>

@@ -1,46 +1,45 @@
 import {HomeScreenContainer} from "./styles";
 import React from "react";
-// import {allImages} from '../../components/ImageSliderThumb/assets'
-// import {allImages} from '../../components/ImageSliderPure/images'
+import {Blockquote, MantineTheme, Paper, useMantineTheme} from '@mantine/core';
 import {allImages} from '../../components/Carousel/images'
 import ImageCarousel from "../../components/Carousel";
-// import {Image} from "@mantine/core";
+import {useElementSize, useMediaQuery} from "@mantine/hooks";
 
-
-// import { Carousel } from 'react-responsive-carousel';
-// import 'react-responsive-carousel/lib/styles/carousel.min.css';
-
-// import "swiper/css";
-// import "swiper/css/navigation"
-// import "swiper/css/thumbs"
-
-// import ImagesSliderThumb from "../../components/ImageSliderThumb";
-// import ImageSliderPure from "../../components/ImageSliderPure";
-
-const HomeScreen: React.FC<{ width: number, height: number, isOpen: boolean }> = ({width, height, isOpen}) => {
+const HomeScreen: React.FC = () => {
+    const {ref: containerRef, width: containerWidth} = useElementSize();
+    const theme: MantineTheme = useMantineTheme();
+    const xs = useMediaQuery(`(max-width: ${theme.breakpoints.xs}px)`);
+    const sm = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
+    const md = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
     return (
-        <HomeScreenContainer className={"helllo"}>
-            {/*<ImagesSliderThumb images={allImages}/>*/}
-            {/*<ImageSliderPure images={allImages}/>*/}
-            <ImageCarousel isOpen={isOpen} width={width} height={height} images={allImages}/>
-            {/*<Carousel*/}
-            {/*    showThumbs={true} // Show thumbnail images*/}
-            {/*    infiniteLoop={true} // Make the carousel loop infinitely*/}
-            {/*    showStatus={false} // Don't show the status indicator*/}
-            {/*    showIndicators={false} // Don't show the control indicators*/}
-            {/*    autoPlay={true}*/}
-            {/*    interval={1500}*/}
-            {/*>*/}
-            {/*    {allImages.map((image, idx: number) => {*/}
-            {/*        return (*/}
-            {/*            <div >*/}
-            {/*                <img src={image.imageUrl} />*/}
-            {/*            </div>*/}
-            {/*        )*/}
-            {/*    })}*/}
+        <HomeScreenContainer>
 
-
-            {/*</Carousel>*/}
+            <Paper
+                ref={containerRef}
+                sx={{
+                    border: "1.5px solid gray",
+                    width: sm ? "100%" : md ? "90%" :  "60%"
+                }}
+                radius={"lg"} bg={theme.colors.blue[1]}
+            >
+                <Blockquote
+                    styles={(theme) => ({
+                        root: {
+                            fontSize: md ? theme.fontSizes.md + 1 : theme.fontSizes.lg + 1,
+                            color: theme.colors.dark[9]
+                        },
+                        cite: {
+                            fontSize: xs ? theme.fontSizes.xs - 1 : sm ? theme.fontSizes.sm - 1 : md ? theme.fontSizes.md - 1 : theme.fontSizes.lg - 3,
+                            color: theme.colors.orange[7],
+                            fontWeight: 500
+                        }
+                    })}
+                    color={"indigo"}
+                    cite="– SAÜ ACİL">
+                    Kalbini durduracak kadar sevimli, yeniden başlatacak kadar yetenekli!
+                </Blockquote>
+                <ImageCarousel container_width={containerWidth} images={allImages}/>
+            </Paper>
         </HomeScreenContainer>
     )
 }

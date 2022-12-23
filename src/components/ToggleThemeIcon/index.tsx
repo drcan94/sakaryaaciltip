@@ -7,7 +7,7 @@ const SwitchThemeButton: React.FC<{disabled?: boolean}> = ({disabled}) => {
     const theme = useMantineTheme();
 
     return (
-        <Group position="center" mt={-10} mb={20}>
+        <Group position="center" mb={20}>
             <Switch
                 disabled={disabled}
                 checked={colorScheme === 'dark'}

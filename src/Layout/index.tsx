@@ -1,15 +1,21 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {Outlet} from "react-router-dom";
 import {Main, Container, Content} from "./styles";
 import TopMenu from "../components/TopMenu";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 
-const Layout = ({rtlChangeHandler,rtl,width, height, leftArrowClicked, isOpen, isClose, rightArrowClicked}) => {
-
-    const isLeftArrowClicked = () => leftArrowClicked()
-    const isRightArrowClicked = () => rightArrowClicked()
-
+const Layout = ({
+                    rtlChangeHandler,
+                    rtl,
+                    width,
+                    height,
+                    leftArrowClicked,
+                    rightArrowClicked,
+                    isClose,
+                    isOpen,
+                    top
+                }) => {
     return (
         <React.Fragment>
             <Sidebar
@@ -17,10 +23,10 @@ const Layout = ({rtlChangeHandler,rtl,width, height, leftArrowClicked, isOpen, i
                 height={height}
                 rtl={rtl}
                 rtlChangeHandler={rtlChangeHandler}
-                leftArrowClicked={isLeftArrowClicked}
+                leftArrowClicked={leftArrowClicked}
                 isOpen={isOpen}
             />
-            <TopMenu rtl={rtl} isClose={isClose} rightArrowClicked={isRightArrowClicked}/>
+            <TopMenu top={top} rtl={rtl} isClose={isClose} rightArrowClicked={rightArrowClicked}/>
             <Container isClose={isClose} rtl={rtl} dir={rtl ? 'rtl' : 'ltr'}>
                 <Main isClose={isClose}>
                     <Content>

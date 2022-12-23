@@ -18,7 +18,7 @@ const Title = styled.div<{ theme: MantineTheme }>`
 `;
 
 const Content = styled.div`
-  padding-top: 6px;
+  padding-top: 10px;
 `;
 
 

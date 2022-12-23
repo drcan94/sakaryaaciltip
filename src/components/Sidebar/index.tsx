@@ -133,41 +133,41 @@ const Sidebar = ({height, width, isOpen, leftArrowClicked, rtl, ...props}) => {
                     </Link>
 
                     <MenuGroup title="İçerikler">
-                        <Link to="/gallery">
+                        <Link to="/galeri" onClick={arrowClickHandler}>
                             <SidebarMenu title="Galeri"/>
                         </Link>
 
                         <SidebarMenu title="Dökümanlar">
-                            <SubMenu to="/mezuniyet-oncesi">Mezuniyet Öncesi</SubMenu>
-                            <SubMenu to="/asistan-dersleri">Asistan Dersleri</SubMenu>
-                            <SubMenu to="/protokol-kilavuzlar">Protokol ve Kılavuzlar</SubMenu>
-                            <SubMenu to="/online-egitim-videolari">Online Eğitim Videoları</SubMenu>
-                            <SubMenu to="/makaleler">Makaleler</SubMenu>
-                            <SubMenu to="/akil-kartlari">Akıl Kartları</SubMenu>
+                            <SubMenu to="/mezuniyet-oncesi" onClick={arrowClickHandler}>Mezuniyet Öncesi</SubMenu>
+                            <SubMenu to="/asistan-dersleri" onClick={arrowClickHandler}>Asistan Dersleri</SubMenu>
+                            <SubMenu to="/protokol-kilavuzlar" onClick={arrowClickHandler}>Protokol ve Kılavuzlar</SubMenu>
+                            <SubMenu to="/online-egitim-videolari" onClick={arrowClickHandler}>Online Eğitim Videoları</SubMenu>
+                            <SubMenu to="/makaleler" onClick={arrowClickHandler}>Makaleler</SubMenu>
+                            <SubMenu to="/akil-kartlari" onClick={arrowClickHandler}>Akıl Kartları</SubMenu>
                         </SidebarMenu>
                     </MenuGroup>
 
 
                     <MenuGroup title="Bize Dair">
-                        <Link to="/about-us" onClick={arrowClickHandler}>
+                        <Link to="/hakkimizda" onClick={arrowClickHandler}>
                             <SidebarMenu
                                 title="Hakkımızda"
                                 active={false}
                             />
                         </Link>
-                        <Link to="vizyon-misyon" onClick={arrowClickHandler}>
+                        <Link to="/vizyon-misyon" onClick={arrowClickHandler}>
                             <SidebarMenu
                                 title="Vizyon & Misyon"
                                 active={false}
                             />
                         </Link>
                         <SidebarMenu title="Akademik Kadro" count={0}>
-                            <SubMenu to="/egitim-kadrosu">Eğitim Kadrosu</SubMenu>
-                            <SubMenu to="/uzmanlarimiz">Uzmanlarımız</SubMenu>
-                            <SubMenu to="/asistanlarimiz">Asistanlarımız</SubMenu>
-                            <SubMenu to="/mezunlarimiz">Mezunlarımız</SubMenu>
+                            <SubMenu to="/egitmen-kadrosu" onClick={arrowClickHandler}>Eğitmen Kadrosu</SubMenu>
+                            <SubMenu to="/uzmanlarimiz" onClick={arrowClickHandler}>Uzmanlarımız</SubMenu>
+                            <SubMenu to="/asistanlarimiz" onClick={arrowClickHandler}>Asistanlarımız</SubMenu>
+                            <SubMenu to="/mezunlarimiz" onClick={arrowClickHandler}>Mezunlarımız</SubMenu>
                         </SidebarMenu>
-                        <Link to="contact-us" onClick={arrowClickHandler}>
+                        <Link to="/bize-ulasin" onClick={arrowClickHandler}>
                             <SidebarMenu
                                 title="Bize Ulaşın"
                                 active={false}

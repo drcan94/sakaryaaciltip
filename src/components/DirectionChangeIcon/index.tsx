@@ -3,7 +3,7 @@ import React from "react";
 
 const SwitchDirectionButton: React.FC<{rtl:any, changeHandler: () => void}> = ({rtl, changeHandler}) => {
     return (
-        <Group position="center" mt={-10} mb={20}>
+        <Group position="center" mb={20}>
             <Switch
                 checked={rtl}
                 onChange={() => changeHandler()}

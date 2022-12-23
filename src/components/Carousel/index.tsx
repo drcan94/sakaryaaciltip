@@ -3,22 +3,20 @@ import React, {useRef, useState} from "react";
 import Autoplay from 'embla-carousel-autoplay';
 import {ImagesTypes} from "./imageSliderTypes";
 import {MantineTheme, useMantineTheme} from "@mantine/core";
-import {useMediaQuery, useElementSize} from '@mantine/hooks';
+import {useMediaQuery} from '@mantine/hooks';
 import useCustomAnimationOffsetEffect from "./hooks/useCustomAnimationOffsetEffect";
 
-const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) => {
+const ImageCarousel: React.FC<ImagesTypes> = ({images, container_width}) => {
     const theme: MantineTheme = useMantineTheme();
     const xs = useMediaQuery(`(max-width: ${theme.breakpoints.xs}px)`);
     const sm = useMediaQuery(`(max-width: ${theme.breakpoints.sm}px)`);
     const md = useMediaQuery(`(max-width: ${theme.breakpoints.md}px)`);
     const lg = useMediaQuery(`(max-width: ${theme.breakpoints.lg}px)`);
-    // const xl = useMediaQuery(`(max-width: ${theme.breakpoints.xl}px)`);
+
     const autoplay = useRef(Autoplay({delay: 2000}));
 
-    const {ref: imageRef, width: imageWidth} = useElementSize();
     const [embla, setEmbla] = useState<Embla | null>(null);
-    useCustomAnimationOffsetEffect(embla, 0, imageWidth)
-
+    useCustomAnimationOffsetEffect(embla, 0, container_width)
     return (
         <Carousel
             mx="auto"
@@ -33,7 +31,7 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) =
             onMouseLeave={autoplay.current.reset}
             styles={(theme) => ({
                 root: {
-                    width: imageWidth,
+                    width: container_width,
                 },
                 slide: {
                     display: "flex",
@@ -48,18 +46,19 @@ const ImageCarousel: React.FC<ImagesTypes> = ({images, width, height, isOpen}) =
                 indicators: {
                     bottom: -25,
                 },
+                viewport: {
+                    borderBottomLeftRadius: 16,
+                    borderBottomRightRadius: 16                }
             })}
         >
             {images.map((image, idx: number) => {
                 return (
                     <Carousel.Slide key={idx}>
-                        <img ref={imageRef} style={{
-                            width:
-                                xs ? (!isOpen ? 0 : width * .9)
-                                    : sm ? (!isOpen ? width * .85 : width * .9)
-                                        : md ? (isOpen ? theme.breakpoints.md - 220 - 250 : theme.breakpoints.md - 250)
-                                            : lg ? (isOpen ? 700 : 920) : 1000,
-                            objectFit: "contain",
+                        <img style={{
+                            width: container_width,
+                            objectFit: "cover",
+                            borderBottomLeftRadius: 16,
+                            borderBottomRightRadius: 16
                         }}
                              src={image.imageUrl} alt={image.imageAlt}
                         />
